@@ -1,0 +1,28 @@
+.main {
+  background-color: darkseagreen;
+}
+
+.hero,
+.footer {
+  padding: 2%;
+  text-align: center;
+  background-color: rgb(237, 249, 1);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.search-input,
+.search-result-card {
+  padding: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn,
+.btn-search,
+.input {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  border-radius: 7%;
+}
