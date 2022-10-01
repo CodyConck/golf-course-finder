@@ -1,16 +1,16 @@
-.main {
+html, body {
   background-color: darkseagreen;
 }
 
 .hero,
 .footer {
-  padding: 2%;
-  text-align: center;
+  /* padding: 2%; */
+  /* text-align: center; */
   background-color: rgb(237, 249, 1);
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
 }
 
-.search-input,
+/* .search-input,
 .search-result-card {
   padding: 2%;
   text-align: center;
@@ -25,4 +25,4 @@
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   border-radius: 7%;
-}
+} */
