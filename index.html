@@ -30,16 +30,12 @@
           <div class="card">
             <img
               x-data
-              :src="
-                $store.global.place
-                  ? $store.global.place.photos[0].getUrl()
-                  : '/assets/images/Image_Clubhouse.jpg'
-              "
+              :src="$store.global.imageSrc()"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title" x-data x-text="">Your Course Name</h5>
+              <h5 class="card-title" x-data x-text="{}">Your Course Name</h5>
               <p class="card-text">
                 A brief description of the course along with how far you are from
                 it.

@@ -33,7 +33,13 @@ document.addEventListener('alpine:init', () => {
     place: null,
     setPlace(place) {
       this.place = place;
-    }
+    },
+    imageSrc() {
+      if (this.place) {
+        return place.photos[0].getUrl();
+      }
+      return '/assets/images/Image_Clubhouse.jpg';
+    },
   })
   const app = window.app = new App({
     Alpine,
