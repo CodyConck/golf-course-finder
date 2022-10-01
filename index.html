@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
@@ -13,36 +13,40 @@
       crossorigin="anonymous"
     />
     <title>Find a Course</title>
+    <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApK7DLknqC8rExuFY8t0LqDQT-6HBGeMw&libraries=places"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
-  <header class="hero">
-    <h1 class="app-title">How Far is...</h1>
-  </header>
   <body>
-    <main class="main">
-      <div class="search-input">
-        <div class="input">
-          <input type="text" />
-          <button class="btn btn-primary">Search</button>
-        </div>
+    <header class="hero">
+      <div class="container text-center">
+        <h1 class="app-title">How Far is...</h1>
       </div>
-      <div class="search-result-card">
-        <div class="card" style="width: 18rem">
-          <img
-            src="./assets/images/Image_Clubhouse.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Your Course Name</h5>
-            <p class="card-text">
-              A brief description of the course along with how far you are from
-              it.
-            </p>
-            <a href="#" class="btn btn-primary">Go to that course's website</a>
+    </header>
+    <div class="container" style="height: calc(100vh - 48px)">
+      <div class="row justify-content-center h-100 align-items-center">
+        <div class="col col-lg-6">
+          <input type="text" id="search" name="search" />
+          <button class="btn btn-primary">Search</button>
+          <div class="card">
+            <img
+              x-data
+              :src="$store.global.imageSrc()"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title" x-data x-text="{}">Your Course Name</h5>
+              <p class="card-text">
+                A brief description of the course along with how far you are from
+                it.
+              </p>
+              <button  class="btn btn-primary">Go to that course's website</button>
+            </div>
           </div>
         </div>
       </div>
-    </main>
-    <footer class="footer">Copyright 2022</footer>
+      <footer class="footer">Copyright 2022</footer>
+    </div>
+    <script type= "text/javascript" src="/assets/scripts/main.js"></script>
   </body>
 </html>
