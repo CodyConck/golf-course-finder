@@ -13,8 +13,14 @@
       crossorigin="anonymous"
     />
     <title>Find a Course</title>
-    <script type= "text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApK7DLknqC8rExuFY8t0LqDQT-6HBGeMw&libraries=places"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApK7DLknqC8rExuFY8t0LqDQT-6HBGeMw&libraries=places"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
   <body>
     <header class="hero">
@@ -26,7 +32,9 @@
       <div class="row justify-content-center h-100 align-items-center">
         <div class="col col-lg-6">
           <input type="text" id="search" name="search" />
-          <button class="btn btn-primary">Search</button>
+          <button onclick="getLocation()" class="btn btn-primary">
+            Search
+          </button>
           <div class="card">
             <img
               x-data
@@ -37,16 +45,19 @@
             <div class="card-body">
               <h5 class="card-title" x-data x-text="{}">Your Course Name</h5>
               <p class="card-text">
-                A brief description of the course along with how far you are from
-                it.
+                A brief description of the course along with how far you are
+                from it.
               </p>
-              <button  class="btn btn-primary">Go to that course's website</button>
+              <button class="btn btn-primary">
+                Go to that course's website
+              </button>
             </div>
           </div>
         </div>
+        <p id="demo"></p>
       </div>
       <footer class="footer">Copyright 2022</footer>
     </div>
-    <script type= "text/javascript" src="/assets/scripts/main.js"></script>
+    <script type="text/javascript" src="/assets/scripts/main.js"></script>
   </body>
 </html>
