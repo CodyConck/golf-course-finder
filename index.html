@@ -22,7 +22,7 @@
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body>
+  <body x-data x-bind:class="$store.global.state.granted ? '' : 'modal-open'" >
     <header class="hero">
       <div class="container text-center">
         <h1 class="app-title">How Far is...</h1>
@@ -31,32 +31,62 @@
     <div class="container" style="height: calc(100vh - 48px)">
       <div class="row justify-content-center h-100 align-items-center">
         <div class="col col-lg-6">
-          <input type="text" id="search" name="search" />
-          <button onclick="getLocation()" class="btn btn-primary">
-            Search
-          </button>
+          <input type="text" id="search" name="search" class="form-control mb-4" />
           <div class="card">
             <img
               x-data
-              :src="$store.global.imageSrc()"
+              :src="$store.global.state.place.image.src"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title" x-data x-text="{}">Your Course Name</h5>
-              <p class="card-text">
-                A brief description of the course along with how far you are
-                from it.
-              </p>
-              <button class="btn btn-primary">
-                Go to that course's website
-              </button>
+              <h5 class="card-title" x-data x-text="$store.global.state.place.name"></h5>
+              <p class="card-text" x-data x-text="$store.global.state.place.formattedAddress"></p>
+              <p class="card-text" x-data x-text="$store.global.calculateDistance()"></p>
+              <a
+                x-data
+                class="btn btn-primary"
+                x-show="$store.global.state.place.url"
+                x-bind:href="$store.global.state.place.url"
+                target="_blank"
+              >
+                Go to maps
+              </a>
+
             </div>
           </div>
         </div>
-        <p id="demo"></p>
       </div>
       <footer class="footer">Copyright 2022</footer>
+    </div>
+    <div
+      x-data
+      x-bind:class="$store.global.state.granted ? 'd-none' : 'show'"
+      class="modal fade" id="staticBackdropLive" style="padding-right: 15px; display: block; background-color: rgba(0, 0, 0, 0.8)">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Welcome</h5>
+          </div>
+          <div class="modal-body">This app requires locaiton permissions. Don't click deny, pinky promise.</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              x-on:click="$store.global.denyPermissions()"
+            >
+              No, I dont like fun.
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              x-on:click="$store.global.acceptPermissions()"
+            >
+              Lets swing em bruh...
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="/assets/scripts/main.js"></script>
   </body>
